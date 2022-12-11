@@ -1,0 +1,13 @@
+{
+    "name": "@hrkltzio/elephant_frontend",
+    "scripts": {
+        "setup": "rm package-lock.json 2>> /dev/null; rm -r node_modules/ 2>> /dev/null; npm install",
+        "dev": "vite"
+    },
+    "author": "hrkltz.io",
+    "license": "MIT",
+    "devDependencies": {
+        "typescript": "4.9.4",
+        "vite": "4.0.0"
+    }
+}
