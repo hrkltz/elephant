@@ -6,7 +6,6 @@ const { createProxyMiddleware } = require('http-proxy-middleware')
 
 // Create Express Server
 const app = express()
-
 // Configuration
 const PORT = 3000
 const HOST = "localhost"
@@ -15,8 +14,6 @@ const API_SERVICE_URL = "https://api.github.com"
 // Logging
 app.use(morgan('dev'))
 
-// Proxy endpoints
-// TODO: Disable cache
 app.use('/file', createProxyMiddleware({
     target: `${API_SERVICE_URL}/repos/hrkltz/wiki/contents`,
     changeOrigin: true,
@@ -27,6 +24,10 @@ app.use('/file', createProxyMiddleware({
     },
     pathRewrite: {
         [`^/file`]: '',
+    },
+    onProxyRes: (incommingMessage, req, res) => {
+        delete incommingMessage.headers['x-frame-options']
+        incommingMessage.headers['cache-control'] = 'no-store'
     }
 }))
 
