@@ -2,16 +2,17 @@
 
 <head>
     <title>@hrkltzio/elephant</title>
-    <script type="module" src="/index.ts"></script>
 </head>
 
 <body>
     <input type="text" id="title" value="Hello World Text File" />
     <input type="text" id="content" value="This is content!" />
-    <button onclick="hrkltzio.listOnClick()">List</button>
-    <button onclick="hrkltzio.createOnClick()">Create</button>
-    <button onclick="hrkltzio.deleteOnClick()">Delete</button>
+    <button onclick="window.hrkltzio_listOnClick()">List</button>
+    <button onclick="window.hrkltzio_createOnClick()">Create</button>
+    <button onclick="window.hrkltzio_deleteOnClick()">Delete</button>
     <ul id="files"></ul>
+    <iframe id="iframe"></iframe>
+    <script src="bundle.js"></script>
 </body>
 
 </html>
